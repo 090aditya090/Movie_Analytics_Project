@@ -76,10 +76,32 @@ spark.sql("select * from user").show(10)
 #5. Save the DataFrames as permanent tables in a Hive metastore using the saveAsTable() function.
 
 # Saving the tables as permanent tables in Hive metastore
-movies_df.write.saveAsTable("movies_table")
-users_df.write.saveAsTable("users_table")
-ratings_df.write.saveAsTable("ratings_table")
+#movies_df.write.saveAsTable("movies_table")
+#users_df.write.saveAsTable("users_table")
+#ratings_df.write.saveAsTable("ratings_table")
 
+
+#=====================================================================================================================
+
+#2. Find the list of the oldest released movies.
+#-----------------------------------------------
+# Follow  these steps to query with respect to year in title column.
+
+#1. First we have to import split, trim, substring, regexp_extract
+from pyspark.sql.functions import split, trim, substring, regexp_extract
+
+#2. Extract the year as column "year" from the "movie" field using a regular expression
+movies_year_df = movies_df.withColumn("year", regexp_extract(trim(substring("title", -6, 6)), "\d{4}", 0))
+movies_year_df.show(10)
+
+#3. create temp view for 'movies_year_df' dateframe
+movies_year_df.createOrReplaceTempView("moviesbyYear")
+
+#4. Now we can see top 10 oldest movies
+spark.sql("SELECT title as movies, year FROM moviesbyYear ORDER BY year ASC").show(10)
+
+# This query will select all columns from the movies table, sort the result by title in ascending order, 
+# and limit the result to the first 10 rows.
 
 
 
