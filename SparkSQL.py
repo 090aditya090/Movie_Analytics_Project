@@ -76,15 +76,16 @@ spark.sql("select * from user").show(10)
 #5. Save the DataFrames as permanent tables in a Hive metastore using the saveAsTable() function.
 
 # Saving the tables as permanent tables in Hive metastore
-#movies_df.write.saveAsTable("movies_table")
-#users_df.write.saveAsTable("users_table")
-#ratings_df.write.saveAsTable("ratings_table")
+movies_df.write.saveAsTable("movies_table")
+users_df.write.saveAsTable("users_table")
+ratings_df.write.saveAsTable("ratings_table")
 
 
 #=====================================================================================================================
 
 #2. Find the list of the oldest released movies.
 #-----------------------------------------------
+
 # Follow  these steps to query with respect to year in title column.
 
 #1. First we have to import split, trim, substring, regexp_extract
@@ -103,7 +104,25 @@ spark.sql("SELECT title as movies, year FROM moviesbyYear ORDER BY year ASC").sh
 # This query will select all columns from the movies table, sort the result by title in ascending order, 
 # and limit the result to the first 10 rows.
 
+#===================================================================================================================================
 
+#3. How many movies are released each year?
+#------------------------------------------
 
+spark.sql("SELECT distinct year, count(title) as movie_count FROM moviesbyYear GROUP BY year ORDER BY year").show()
 
-	   
+#===================================================================================================================================
+
+#4. How many number of movies are there for each rating?
+#-------------------------------------------------------
+
+spark.sql("SELECT r.rating, COUNT(m.movie_id) AS movie_count FROM moviesbyYear m INNER JOIN rating r ON m.movie_id = r.movie_id GROUP BY r.rating").show()
+
+#===================================================================================================================================
+
+#5. How many users have rated each movie?
+#----------------------------------------
+
+spark.sql("SELECT movie_id, COUNT(DISTINCT user_id) as user_count FROM rating GROUP BY movie_id ORDER BY movie_id").show()
+
+#******************************************************END OF CODE*********************************************************************	   
