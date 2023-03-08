@@ -1,4 +1,11 @@
-#                                                                   Spark SQL
+#								                SparkSQL
+#===================================================================================================================================================
+#1. Create tables for movies.dat, users.dat and ratings.dat: Saving Tables from Spark SQL
+#2. Find the list of the oldest released movies.
+#3. How many movies are released each year?
+#4. How many number of movies are there for each rating?
+#5. How many users have rated each movie?
+#===================================================================================================================================================
 #===================================================================================================================================================
 
 #1. Create tables for movies.dat, users.dat and ratings.dat: Saving Tables from Spark SQL
@@ -57,6 +64,7 @@ users_df = spark.read.format("csv") \
 
 #4. Create temporary tables for each DataFrame using the "createOrReplaceTempView" method:
 
+# Registering the temporary tables
 movies_df.createOrReplaceTempView("movies")
 ratings_df.createOrReplaceTempView("rating")
 users_df.createOrReplaceTempView("user")
@@ -64,6 +72,14 @@ users_df.createOrReplaceTempView("user")
 spark.sql("select * from movies").show(10)
 spark.sql("select * from rating").show(10)
 spark.sql("select * from user").show(10)
+
+#5. Save the DataFrames as permanent tables in a Hive metastore using the saveAsTable() function.
+
+# Saving the tables as permanent tables in Hive metastore
+movies_df.write.saveAsTable("movies_table")
+users_df.write.saveAsTable("users_table")
+ratings_df.write.saveAsTable("ratings_table")
+
 
 
 
