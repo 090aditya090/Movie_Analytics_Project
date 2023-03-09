@@ -95,3 +95,18 @@ ratings_df = spark.read.format("csv") \
 
 # show ratings_df data frame
 ratings_df.show()
+
+#================================================================================================================================
+
+#4. Import data from a URL using Scala code
+#------------------------------------------
+
+# scala_code = """
+# import org.apache.spark.sql.functions._
+# val url = "http://example.com/data.csv"
+# val df = spark.read.format("csv").option("header", true).load(url)
+# df.show()
+# """
+# spark.sparkContext.addFile("http://example.com/example.scala")
+# spark.sparkContext.setCheckpointDir("/tmp")
+# spark.sparkContext.runJob(spark.sparkContext.parallelize([1]), lambda x: exec(scala_code))
