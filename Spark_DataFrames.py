@@ -17,7 +17,7 @@ from pyspark.sql.types import StructType, StructField, IntegerType, StringType, 
 from pyspark.sql.functions import split, trim, substring, regexp_extract
 
 # Create a SparkSession
-spark = SparkSession.builder.appName("MovieLens Analysis").getOrCreate()
+spark = SparkSession.builder.appName("MovieLens Analysis").enableHiveSupport().getOrCreate()
 
 # Define the schema for each DataFrame
 movies_schema = StructType([
@@ -100,7 +100,7 @@ ratings_df.show()
 
 #4. Import data from a URL using Scala code
 #------------------------------------------
-
+print("4. Import data from a URL using Scala code")
 # scala_code = """
 # import org.apache.spark.sql.functions._
 # val url = "http://example.com/data.csv"
@@ -110,3 +110,38 @@ ratings_df.show()
 # spark.sparkContext.addFile("http://example.com/example.scala")
 # spark.sparkContext.setCheckpointDir("/tmp")
 # spark.sparkContext.runJob(spark.sparkContext.parallelize([1]), lambda x: exec(scala_code))
+print("""
+
+    import org.apache.spark.sql.functions._
+    val url = "http://example.com/data.csv"
+    val df = spark.read.format("csv").option("header", true).load(url)
+    df.show()
+
+    spark.sparkContext.addFile("http://example.com/example.scala")
+    spark.sparkContext.setCheckpointDir("/tmp")
+    spark.sparkContext.runJob(spark.sparkContext.parallelize([1]), lambda x: exec(scala_code))
+""")
+
+#================================================================================================================================
+
+# 5. Save table without defining DDL in Hive?
+#--------------------------------------------
+
+print("5. Save table without defining DDL in Hive?")
+
+movies_df.write \
+    .mode("overwrite") \
+    .format("hive") \
+    .saveAsTable("my_hive_table")
+
+
+# Read the hive table back into a DataFrame
+table_df = spark.table(my_hive_table)
+
+# Query the table using Spark SQL
+table_df.createOrReplaceTempView(movie)
+result = spark.sql("SELECT name FROM movie WHERE movie_id > 30")
+
+# Show the query result
+result.show()
+
