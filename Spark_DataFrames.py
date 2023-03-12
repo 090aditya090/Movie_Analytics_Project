@@ -145,3 +145,7 @@ result = spark.sql("SELECT name FROM movie WHERE movie_id > 30")
 # Show the query result
 result.show()
 
+
+#================================================================================================================================
+
+
