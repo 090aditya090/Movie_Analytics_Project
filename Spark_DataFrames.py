@@ -129,21 +129,21 @@ print("""
 
 print("5. Save table without defining DDL in Hive?")
 
-# movies_df.write \
-#     .mode("overwrite") \
-#     .format("hive") \
-#     .saveAsTable("my_hive_table")
+movies_df.write \
+    .mode("overwrite") \
+    .format("hive") \
+    .saveAsTable("my_hive_table")
 
 
-# # Read the hive table back into a DataFrame
-# table_df = spark.table(my_hive_table)
+# Read the hive table back into a DataFrame
+table_df = spark.table(my_hive_table)
 
-# # Query the table using Spark SQL
-# table_df.createOrReplaceTempView(movie)
-# result = spark.sql("SELECT name FROM movie WHERE movie_id > 30")
+# Query the table using Spark SQL
+table_df.createOrReplaceTempView(movie)
+result = spark.sql("SELECT name FROM movie WHERE movie_id > 30")
 
-# # Show the query result
-# result.show()
+# Show the query result
+result.show()
 
 
 #================================================================================================================================
