@@ -5,6 +5,9 @@
 #3. How many movies are released each year?
 #4. How many number of movies are there for each rating?
 #5. How many users have rated each movie?
+#6. What is the total rating for each movie?
+#7. What is the average rating for each movie?
+
 #===================================================================================================================================================
 #===================================================================================================================================================
 
