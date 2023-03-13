@@ -71,9 +71,12 @@ users_df = spark.read.format("csv") \
           .load("/movieData/dataset/users.dat")
 
 #================================================================================================================================
+
+# show all dataframe
 movies_df.show()
 ratings_df.show()
 users_df.show()
+
 # 1. What are the top 10 most viewed movies?
 #-------------------------------------------
 print("1. What are the top 10 most viewed movies?")
