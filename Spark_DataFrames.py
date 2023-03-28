@@ -127,7 +127,8 @@ print("""
 # 5. Save table without defining DDL in Hive?
 #--------------------------------------------
 
-print("5. Save table without defining DDL in Hive?")
+print("""
+5. Save table without defining DDL in Hive?
 
 movies_df.write \
     .mode("overwrite") \
@@ -144,7 +145,7 @@ result = spark.sql("SELECT name FROM movie WHERE movie_id > 30")
 
 # Show the query result
 result.show()
-
+""")
 
 #================================================================================================================================
 
