@@ -34,6 +34,7 @@ Use PySpark to process and analyze the data using the Python programming languag
 Save the processed data tables in the Apache Hive Metastore for easy querying.
 Use Jupyter Notebook to submit PySpark jobs to the Dataproc cluster for data processing and analysis.
 
+
 ## Conclusion
 This project demonstrates the use of big data technologies to process and analyze large-scale datasets. By using Google Dataproc, Apache Spark, and Python, we were able to perform complex data processing and analysis tasks quickly and efficiently. The project highlights the importance of using the right tools and technologies for processing and analyzing big data, and how these tools can help to unlock valuable insights from large-scale datasets.
 
