@@ -1,5 +1,5 @@
 # Big Data Project using Google Dataproc, PySpark, and Python
-This project is a big data solution that uses Google Dataproc, Apache Spark, and Scala to analyze a semi-structured dataset of movie ratings. The dataset used in this project is the MovieLens dataset containing one million records.
+This project is a big data solution that uses Google Dataproc, Apache Spark, and Python/Scala to analyze a semi-structured dataset of movie ratings. The dataset used in this project is the MovieLens dataset containing one million records.
 
 
 
