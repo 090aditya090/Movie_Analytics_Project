@@ -1,8 +1,12 @@
 # Big Data Project using Google Dataproc, PySpark, and Python
 This project is a big data solution that uses Google Dataproc, Apache Spark, and Scala to analyze a semi-structured dataset of movie ratings. The dataset used in this project is the MovieLens dataset containing one million records.
 
+
+
 ## Objective
 The objective of this project is to showcase the use of big data technologies to answer analytical questions on a large-scale dataset. The project aims to demonstrate the capabilities of Google Dataproc Hadoop cluster with pySpark, Hive and Python in processing, analyzing data.
+
+
 
 ## Architecture
 The system architecture of the project consists of the following components:
@@ -18,6 +22,8 @@ Used to store the processed data tables in a centralized location for easy acces
 #### Jupyter Notebook: 
 Used to submit PySpark jobs to the Dataproc cluster for data processing and analysis.
 
+
+
 ## Setup
 To run this project, you will need the following:
 
@@ -27,6 +33,8 @@ To run this project, you will need the following:
 #### A Google Dataproc cluster to process the data using PySpark and Python.
 #### Make sure that PySpark and Python installed on master/manager node is working fine.
 #### Jupyter Notebook should congigured with Dataproc Hadoop cluster.
+
+
 
 ## Running the Project
 To run the project, follow these steps:
@@ -44,6 +52,7 @@ Use PySpark to process and analyze the data using the Python programming languag
 Save the processed data tables in the Apache Hive Metastore for easy querying.
 
 Use Jupyter Notebook to submit PySpark jobs to the Dataproc cluster for data processing and analysis.
+
 
 
 ## Conclusion
