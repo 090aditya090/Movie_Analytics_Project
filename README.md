@@ -7,31 +7,42 @@ The objective of this project is to showcase the use of big data technologies to
 ## Architecture
 The system architecture of the project consists of the following components:
 
-Google Cloud Storage: Used to store the raw data files in the form of CSV files.
-Google BigQuery: Used to explore and clean the data using SQL queries.
-Google Dataproc: Used to create a Hadoop cluster to process the data using Apache Spark and PySpark.
-Apache Hive Metastore: Used to store the processed data tables in a centralized location for easy access and querying.
-Jupyter Notebook: Used to submit PySpark jobs to the Dataproc cluster for data processing and analysis.
+#### Google Cloud Storage: 
+Used to store the raw data files in the form of CSV files.
+#### Google BigQuery: 
+Used to explore and clean the data using SQL queries.
+#### Google Dataproc: 
+Used to create a Hadoop cluster to process the data using Apache Spark and PySpark.
+#### Apache Hive Metastore: 
+Used to store the processed data tables in a centralized location for easy access and querying.
+#### Jupyter Notebook: 
+Used to submit PySpark jobs to the Dataproc cluster for data processing and analysis.
 
 ## Setup
 To run this project, you will need the following:
 
-A Google Cloud Platform account with billing enabled.
-A Google Cloud Storage bucket to store the raw data files.
-A Google BigQuery dataset to explore and clean the data.
-A Google Dataproc cluster to process the data using PySpark and Python.
-Make sure that PySpark and Python installed on master/manager node is working fine.
-Jupyter Notebook should congigured with Dataproc Hadoop cluster.
+#### A Google Cloud Platform account with billing enabled.
+#### A Google Cloud Storage bucket to store the raw data files.
+#### A Google BigQuery dataset to explore and clean the data.
+#### A Google Dataproc cluster to process the data using PySpark and Python.
+#### Make sure that PySpark and Python installed on master/manager node is working fine.
+#### Jupyter Notebook should congigured with Dataproc Hadoop cluster.
 
 ## Running the Project
 To run the project, follow these steps:
 
 Upload the raw data files to a Google Cloud Storage bucket.
+
 Use Google BigQuery to explore and clean the data using SQL queries.
+
 Create a Google Dataproc cluster with one master node and two worker nodes.
+
 Connect to the cluster using SSH.
+
 Use PySpark to process and analyze the data using the Python programming language.
+
 Save the processed data tables in the Apache Hive Metastore for easy querying.
+
 Use Jupyter Notebook to submit PySpark jobs to the Dataproc cluster for data processing and analysis.
 
 
